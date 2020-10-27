@@ -2,8 +2,14 @@
   "name": "medal-widget",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "dev": "shadow-cljs watch app"
+  },
   "devDependencies": {
     "shadow-cljs": "2.11.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "16.13.0",
+    "react-dom": "16.13.0"
+  }
 }

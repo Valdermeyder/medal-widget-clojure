@@ -5,7 +5,19 @@
   "src/test"]
 
  :dependencies
- []
+ [[reagent "0.10.0"]]
 
  :builds
- {}}
+ {:app {:target     :browser
+        :output-dir "public/js"
+        :asset-path "/js"
+        :modules
+                    {:main
+                     {:entries [widget.medal.main]}
+                     :dev
+                     {:entries [widget.medal.hooks]
+                      :depends-on #{:main}}}
+        :devtools
+                    {:after-load widget.medal.hooks/reload
+                     :http-root  "public"
+                     :http-port  3001}}}}
