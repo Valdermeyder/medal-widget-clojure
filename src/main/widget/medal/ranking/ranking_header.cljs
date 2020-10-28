@@ -3,12 +3,10 @@
 
 (def medal-header-keys (concat medalKeys [:total]))
 
-(def medal-header-labels {
-                          :total "Total"
+(def medal-header-labels {:total "Total"
                           :gold "Gold"
                           :silver "Silver"
-                          :bronze "Bronze"
-                          })
+                          :bronze "Bronze"})
 
 (defn ranking-header
   []
