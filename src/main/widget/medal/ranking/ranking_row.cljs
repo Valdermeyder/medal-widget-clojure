@@ -5,7 +5,7 @@
     :or {gold 0 silver 0 bronze 0 total 0}}]
   [:tr
    [:td {:key "ranking"} ranking]
-   [:td {:key "country-flag"} "flag"]
+   [:td {:key "country-flag"} (str code " flag")]
    [:td {:key "country-code"}
     [:b code]]
    [:td {:key "gold"} gold]

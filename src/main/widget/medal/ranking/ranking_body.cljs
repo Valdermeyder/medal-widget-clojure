@@ -11,10 +11,16 @@
         :error-handler   (fn [{:keys [status status-text]}]
                            (js/console.log status status-text))}))
 
+(defn slice-countries
+  ([countries] (slice-countries countries 10))
+  ([countries show-number]
+   (if (< show-number (count countries)) (subvec countries 0 show-number) countries)))
+
 (defn ranking-body []
   (let [countries (atom [])]
     (fetch-countries! countries)
     (fn []
       [:<>
-       (map (fn [country]
-              [ranking-row (merge {:key (:code country)} country)]) @countries)])))
+       (map-indexed (fn [index country]
+              [ranking-row (merge {:key (:code country), :ranking (inc index)} country)])
+            (slice-countries @countries))])))
