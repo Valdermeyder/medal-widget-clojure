@@ -14,8 +14,7 @@
                            (reset! fetch-error true)
                            (js/console.log status status-text))}))
 
-(defn ranking
-  [{:keys [order]}]
+(defn ranking []
   (let [fetch-error? (r/atom false)]
     (fetch-countries! countries fetch-error?)
     (fn []
@@ -24,4 +23,4 @@
          [:p "Ranking is not available, please check the connection."]
          (if (empty? @countries)
            [:p "No data yet..."]
-           [ranking-table {:order order}]))])))
+           [ranking-table]))])))

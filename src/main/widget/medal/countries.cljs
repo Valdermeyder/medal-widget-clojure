@@ -1,4 +1,6 @@
 (ns widget.medal.countries
-  (:require [reagent.core :refer [atom]]))
+  (:require [reagent.core :as r]))
 
-(def countries (atom []))
+(def countries (r/atom []))
+
+(def order (r/atom :gold) )

@@ -3,9 +3,9 @@
             [widget.medal.ranking.ranking :refer [ranking]]))
 
 (defn app
-  [{:keys [order]}]
+  []
   [:<>
    [header]
    [:main
-    [ranking {:order order}]]])
+    [ranking]]])
 
