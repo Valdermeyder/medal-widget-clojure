@@ -1,6 +1,6 @@
 (ns widget.medal.main
   (:require [reagent.dom :as rd]
-            [widget.medal.app :refer [app]]
+            [widget.medal.widget :refer [widget]]
             [widget.medal.countries :as countries]))
 
 (defn ^:export init
@@ -8,5 +8,5 @@
   ([id order]
    (reset! countries/order (keyword order))
    (rd/render
-     [app]
+     [widget]
      (.getElementById js/document id))))

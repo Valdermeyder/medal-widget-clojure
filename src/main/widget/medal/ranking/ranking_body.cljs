@@ -12,13 +12,22 @@
 
 (defn add-total [countries]
   (map (fn [{:keys [gold silver bronze]
-             :or {gold 0 silver 0 bronze 0}
-             :as country}]
+             :or   {gold 0 silver 0 bronze 0}
+             :as   country}]
          (merge {:total (+ gold silver bronze)} country))
        countries))
 
+(defn calc-flag-positions [countries]
+  (reduce-kv (fn [positions index {:keys [code]}]
+            (merge positions {code (str "0 " (* index -17) "px")})) {} (vec (sort-by :code countries))))
+
 (defn ranking-body []
-  [:<>
-   (map-indexed (fn [index country]
-                  [ranking-row (merge {:key (:code country), :ranking (inc index)} country)])
-                (slice-countries (sort-by-medals (add-total @countries) @order)))])
+  (let [flag-positions (calc-flag-positions @countries)]
+    [:<>
+     (map-indexed
+       (fn [index country]
+         (let [country-code (:code country)]
+         [ranking-row (merge {:key           country-code
+                              :ranking       (inc index)
+                              :flag-position (get flag-positions country-code)} country)]))
+       (slice-countries (sort-by-medals (add-total @countries) @order)))]))
