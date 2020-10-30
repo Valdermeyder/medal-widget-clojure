@@ -1,5 +1,6 @@
 (ns widget.medal.ranking.ranking-body
-  (:require [widget.medal.ranking.ranking-row :refer [ranking-row]]
+  (:require [reagent.impl.util :as rutil]
+    [widget.medal.ranking.ranking-row :refer [ranking-row]]
             [widget.medal.countries :refer [countries order]]))
 
 (defn slice-countries
@@ -21,8 +22,10 @@
   (reduce-kv (fn [positions index {:keys [code]}]
             (merge positions {code (str "0 " (* index -17) "px")})) {} (vec (sort-by :code countries))))
 
+(def memoized-calc-flag-positions (rutil/memoize-1 calc-flag-positions))
+
 (defn ranking-body []
-  (let [flag-positions (calc-flag-positions @countries)]
+  (let [flag-positions (memoized-calc-flag-positions @countries)]
     [:<>
      (map-indexed
        (fn [index country]
