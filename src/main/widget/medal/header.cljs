@@ -2,4 +2,4 @@
 
 (defn header []
   [:header
-   [:h2 "MEDAL WIDGET"]])
+   [:h2.color-light-grey.font-weight-lighter.font-size-1_25 "MEDAL WIDGET"]])

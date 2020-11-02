@@ -1,0 +1,103 @@
+.border-bottom-large {
+  border-bottom: 0.1875rem solid grey;
+}
+
+.border-bottom-small {
+  border-bottom: 0.0625rem solid grey;
+}
+
+.border-collapse {
+  border-collapse: collapse;
+}
+
+.background-color-gold {
+  background-color: gold;
+}
+
+.background-color-silver {
+  background-color: silver;
+}
+
+.background-color-bronze {
+  background-color: saddlebrown;
+}
+
+.border-radius-50 {
+  border-radius: 50%;
+}
+
+.background-repeat-no {
+  background-repeat: no-repeat
+}
+
+.border-top {
+  border-top: 0.1875rem solid;
+}
+
+.border-top-color-grey {
+  border-top-color: grey;
+}
+
+.border-top-color-transparent {
+  border-top-color: transparent;
+}
+
+.color-grey {
+  color: slategrey;
+}
+
+.color-dark-grey {
+  color: darkslategrey;
+}
+
+.color-light-grey {
+  color: lightslategrey;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.font-weight-lighter {
+  font-weight: lighter;
+}
+
+.font-size-1_25 {
+  font-size: 1.25em;
+}
+
+.height-17 {
+  height: 1.0625rem;
+}
+
+.height-25 {
+  height: 1.5625rem
+}
+
+.min-width-large {
+  min-width: 7.125rem;
+}
+
+.padding-10 {
+  padding: 0.625rem;
+}
+
+.padding-8-15 {
+  padding: 0.5rem 0.9375rem;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.width-25 {
+  width: 1.5625rem
+}
+
+.width-30 {
+  width: 1.875rem
+}

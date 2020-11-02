@@ -16,6 +16,8 @@ The widget could be embedded in an HTML page using pattern below
     <meta charset="UTF-8">
     <title>Medal Widget Demo</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/utils.css">
+    <link rel="stylesheet" href="/widget.css">
   <body>
     <div id="medal-widget"></div>
     <noscript>

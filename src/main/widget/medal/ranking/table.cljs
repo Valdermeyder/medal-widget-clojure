@@ -3,7 +3,7 @@
             [widget.medal.ranking.ranking-body :refer [ranking-body]]))
 
 (defn ranking-table []
-  [:table
+  [:table.border-collapse
    [:thead
     [ranking-header]]
    [:tbody

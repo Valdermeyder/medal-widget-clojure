@@ -4,7 +4,7 @@
 
 (defn widget
   []
-  [:div.medal-widget
+  [:div.font-family-roboto
    [header]
    [:main
     [ranking]]])

@@ -1,0 +1,7 @@
+.font-family-roboto * {
+  font-family: 'Roboto', sans-serif;
+}
+
+.background-image-flag {
+  background-image: url('/flags.png');
+}
