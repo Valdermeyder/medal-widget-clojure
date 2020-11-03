@@ -1,7 +1,7 @@
 (ns widget.medal.ranking.ranking-body
   (:require [reagent.impl.util :as rutil]
-    [widget.medal.ranking.ranking-row :refer [ranking-row]]
-            [widget.medal.countries :refer [countries order]]))
+            [re-frame.core :as rf]
+            [widget.medal.ranking.ranking-row :refer [ranking-row]]))
 
 (defn slice-countries
   ([countries] (slice-countries countries 10))
@@ -20,17 +20,17 @@
 
 (defn calc-flag-positions [countries]
   (reduce-kv (fn [positions index {:keys [code]}]
-            (merge positions {code (str "0 " (* index -17) "px")})) {} (vec (sort-by :code countries))))
+               (merge positions {code (str "0 " (* index -17) "px")})) {} (vec (sort-by :code countries))))
 
 (def memoized-calc-flag-positions (rutil/memoize-1 calc-flag-positions))
 
 (defn ranking-body []
-  (let [flag-positions (memoized-calc-flag-positions @countries)]
+  (let [flag-positions (memoized-calc-flag-positions @(rf/subscribe [:countries]))]
     [:<>
      (map-indexed
        (fn [index country]
          (let [country-code (:code country)]
-         [ranking-row (merge {:key           country-code
-                              :ranking       (inc index)
-                              :flag-position (get flag-positions country-code)} country)]))
-       (slice-countries (sort-by-medals (add-total @countries) @order)))]))
+           [ranking-row (merge {:key           country-code
+                                :ranking       (inc index)
+                                :flag-position (get flag-positions country-code)} country)]))
+       (slice-countries (sort-by-medals (add-total @(rf/subscribe [:countries])) @(rf/subscribe [:order]))))]))

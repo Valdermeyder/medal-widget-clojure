@@ -1,6 +1,6 @@
 (ns widget.medal.ranking.ranking-header
-  (:require [widget.medal.medals :refer [medalKeys]]
-            [widget.medal.countries :refer [order]]))
+  (:require [re-frame.core :as rf]
+            [widget.medal.medals :refer [medalKeys]]))
 
 (def medal-header-keys (concat medalKeys [:total]))
 
@@ -28,8 +28,8 @@
    (doall (map (fn
                  [key]
                  [ranking-header-cell {:key      key
-                                       :on-click #(reset! order key)
-                                       :class    (if (= @order key)
+                                       :on-click #(rf/dispatch [:order key])
+                                       :class    (if (= @(rf/subscribe [:order]) key)
                                                    "border-top-color-grey"
                                                    "border-top-color-transparent")}
                   (key medal-header-labels)])

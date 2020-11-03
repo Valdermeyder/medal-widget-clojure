@@ -6,7 +6,8 @@
 
  :dependencies
  [[reagent "0.10.0"]
-  [cljs-ajax "0.8.1"]]
+  [cljs-ajax "0.8.1"]
+  [re-frame "1.1.1"]]
 
  :builds
  {:app {:target     :browser
