@@ -22,4 +22,7 @@
         :devtools
                     {:after-load widget.medal.hooks/reload
                      :http-root  "public"
-                     :http-port  3001}}}}
+                     :http-port  3001}}
+  :test {:target :karma
+         :output-to "target/test.js"
+         :ns-regexp "-test$"}}}
