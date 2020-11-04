@@ -30,13 +30,17 @@ The widget could be embedded in an HTML page using pattern below
   </body>
 </html>
 ```
+# Tests
+## Prepare environment
+Run `npx msw init target/`
+[`msw`](https://github.com/mswjs/msw) is used as api stub for test
 
-# Run tests
-## On changes
+## Run tests
+### On changes
 1. Open one terminal and run `npm run test:watch`
 1. Open another terminal and run `npm test`
 
 To stop watching terminate both run scripts
-## On demand
+### On demand
 1. Run `npm run test:compile`
 1. Run `npm test -- --single-run`
